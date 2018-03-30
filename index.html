@@ -1,0 +1,123 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <!-- 强制适应屏幕-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <style>
+            body{
+                background-color: #eeeeee;
+            }
+            h1{
+                text-align: center;
+            }
+            .container{
+                width: 960px;
+                height: 450px;
+                margin: 60px auto;
+                position: relative;
+
+            }
+            img{
+                height: 55%;
+                padding: 10px 10px 15px;
+                background-color: white;
+                border: 1px solid #dddddd;
+                position: absolute;
+                -webkit-transform: rotate(15deg);
+                -moz-transform: rotate(15deg);
+                transform:rotate(15deg);
+                -webkit-transition: 0.7s;
+                -moz-transition: 0.7s;
+                transition: 0.7s;
+
+            }
+            img:hover{
+                -webkit-transform: rotate(0deg) scale(1.2);
+                -moz-transform: rotate(0deg) scale(1.2);
+                transform:rotate(0deg) scale(1.2);
+                box-shadow: -10px 10px 15px #888888;
+
+
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here      -->
+        <h1>Photo Wall</h1>
+        <div class="container">
+            <img src="img/01.jpg" alt="">
+            <img src="img/02.jpg" alt="">
+            <img src="img/03.jpg" alt="">
+            <img src="img/04.jpg" alt="">
+            <img src="img/05.jpg" alt="">
+
+
+        </div>
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+        <script type="text/javascript">
+            $(function() {
+                var page = {
+                    currRotate: '',
+                    init: function () {
+                        this.setPosition();
+                    },
+                    setPosition: function () {
+                        var _this = this;
+                        $('img').each(function(n) {
+
+                            var a = Math.floor(n / 5);
+                            var b = (n % 3) + 1;
+                            $(this).css({
+                                top: (a * _this.random(400) + b * _this.random(40)) + 'px',
+                                left: (b *_this.random(300)) + 'px',
+                                transform: 'rotate(' + _this.random(180) + 'deg)'
+                            })
+                        }).mouseover(function() {
+                            console.log($(this)[0].style.transform);
+                            this.currRotate = $(this)[0].style.transform;
+                            $(this).css({
+                                transform: 'rotate(0deg)',
+                                zIndex: 999
+                            })
+                        }).mouseout(function () {
+                            $(this).css({
+                                transform: _this.currRotate,
+                                zIndex: 1
+                            })
+                        })
+                    },
+                    random: function (x) {
+                        return Math.random() * x
+                    }
+                }
+                page.init();
+            })
+        </script>
+    </body>
+</html>

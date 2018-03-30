@@ -2,10 +2,11 @@
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
+        <!--IE 采用最新的渲染模式-->
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title></title>
         <meta name="description" content="">
-        <!-- 强制适应屏幕-->
+        <!-- 强制适应屏幕宽-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="manifest" href="site.webmanifest">
@@ -15,8 +16,28 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <style>
+            html {
+                color: #222;
+                font-size: 1em;
+                line-height: 1.4;
+                width: 100%;
+                height: 100%;
+                /**/
+                -webkit-text-size-adjust: none;
+                -moz-text-size-adjust: none;
+                -ms-text-size-adjust: none;
+                -o-text-size-abjust:none;
+                text-size-adjust:none;
+    }
             body{
-                background-color: #eeeeee;
+                background-color: #47c9af;
+                width: 100%;
+                height: 100%;
+                color: #74777b;
+                font-weight: 300;
+                font-size: 1.5em;
+                font-family: "Rage Italic" ;
+
             }
             h1{
                 text-align: center;
@@ -50,6 +71,52 @@
 
 
             }
+            ul{
+                list-style:none;
+                padding: 0;
+                margin: 0;
+
+            }
+
+            a:link,a:visited,a:focus{
+                text-decoration:none;
+                outline: none;
+            }
+            *,*:after,*:before{
+                -webkit-box-sizing: border-box;
+                -o-box-sizng:border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            *:after{clear: both}
+            .nav
+            {
+                height: 100px;
+                margin: 100px auto;
+            }
+            .nav li{
+                display: inline;
+                margin: 0 1em;
+            }
+            .tooltip{
+                display: inline-block;
+                font-weight: 600;
+                color: darkslategrey;
+                padding: 0.15em 0.25em 0;
+                position: relative;
+                z-index: 99;
+            }
+            .tooltip-content{
+                position: absolute;
+                z-index:999;
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+                background-color: white;
+
+                margin-left: -80px;
+
+            }
         </style>
     </head>
     <body>
@@ -58,6 +125,22 @@
         <![endif]-->
 
         <!-- Add your site or application content here      -->
+
+        <div class="nav">
+            <ul>
+                <li><a  class ="tooltip tooltip-effect-1" href="">Home</a></li>
+                <span class="tooltip-content"><i></i></span>
+                <li><a  class ="tooltip tooltip-effect-2" href="">About me</a></li>
+                <span class="tooltip-content"><i></i></span>
+                <li><a  class ="tooltip tooltip-effect-3" href="">Photography</a></li>
+                <span class="tooltip-content"><i></i></span>
+                <li><a  class ="tooltip tooltip-effect-4" href="">Work</a></li>
+                <span class="tooltip-content"><i></i></span>
+                <li><a  class ="tooltip tooltip-effect-5" href="">Content</a></li>
+                <span class="tooltip-content"><i></i></span>
+            </ul>
+        </div>
+
         <h1>Photo Wall</h1>
         <div class="container">
             <img src="img/01.jpg" alt="">
